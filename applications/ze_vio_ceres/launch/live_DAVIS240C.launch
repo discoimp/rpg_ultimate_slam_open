@@ -2,7 +2,7 @@
   <arg name="camera_name" />
   <arg name="timeshift_cam_imu"   default="0" />
   <arg name="motion_correction"   default="1" />
-  <arg name="frame_size"   default="15000" />
+  <arg name="frame_size"   default="150000" />
 
   <node name="ze_vio_ceres" pkg="ze_vio_ceres" type="ze_vio_ceres_node"
     output="screen" required="true"

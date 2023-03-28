@@ -1,24 +1,24 @@
-label: "DAVIS-example"
-id: davis-example
+label: "DVXplorer_DXA00099"
+id: '123'
 cameras:
 - camera:
     label: dvs
     id: 0
     line-delay-nanoseconds: 0
-    image_height: 180
-    image_width: 240
+    image_height: 480 
+    image_width: 640
     type: pinhole
     intrinsics:
       cols: 1
       rows: 4
-      data: [197.8896180156088, 197.77682212558196, 130.67973405379294, 111.1614965931138]
+      data: [5.5356509923625788e+02, 5.5469491706943245e+02, 2.8962282834844081e+02, 2.3730261966173168e+02]
     distortion:
-      type: equidistant
+      type: radtan
       parameters:
         cols: 1
         rows: 4
-        data: [-0.07990900260889204, 0.14676572847248792, -0.23207155168801544,
-    0.13338013034315513]
+        data: [-3.5692863136025010e-01, -1.1476752280465986e-01, -4.4233046523241863e-03,
+    1.7515987007969845e-03]
   T_B_C:
     cols: 4
     rows: 4
@@ -30,20 +30,20 @@ cameras:
     label: standard
     id: 1
     line-delay-nanoseconds: 0
-    image_height: 180
-    image_width: 240
+    image_height: 480 
+    image_width: 640
     type: pinhole
     intrinsics:
       cols: 1
       rows: 4
-      data: [197.8896180156088, 197.77682212558196, 130.67973405379294, 111.1614965931138]
+      data: [5.5356509923625788e+02, 5.5469491706943245e+02, 2.8962282834844081e+02, 2.3730261966173168e+02]
     distortion:
-      type: equidistant
+      type: radtan
       parameters:
         cols: 1
         rows: 4
-        data: [-0.07990900260889204, 0.14676572847248792, -0.23207155168801544,
-    0.13338013034315513]
+        data: [-3.5692863136025010e-01, -1.1476752280465986e-01, -4.4233046523241863e-03,
+    1.7515987007969845e-03]
   T_B_C:
     cols: 4
     rows: 4

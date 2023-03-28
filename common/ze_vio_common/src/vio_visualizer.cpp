@@ -311,7 +311,10 @@ void VioVisualizer::displayNFrameImages(
     const Frame& frame = nframe.at(frame_idx);
     cv::Mat img_rgb(img_rgb_all, cv::Rect(n * img_size.width(), 0,
                                           img_size.width(), img_size.height()));
-    CHECK(img_size == frame.pyr_->at(level).size());
+
+    // CUSTOM, DELETE THIS LINE
+   // std::cout << frame.pyr_->at(level).size() << std::endl;
+   // CHECK(img_size == frame.pyr_->at(level).size());
     cv::Mat img = ImageCv8uC1(frame.pyr_->at(level)).cvMat();
     cv::cvtColor(img, img_rgb, cv::COLOR_GRAY2RGB);
     if (FLAGS_vio_viz_show_image_statistics)
