@@ -19,7 +19,7 @@ cd <to folder>
 # Record rosbag
 rosbag record -O imu_cam_calib.bag /dvs/image_raw /dvs/imu
 # Then, estimate camera-to-IMU extrinsics with Kalibr
-rosrun kalibr kalibr_calibrate_imu_camera --target ~/uslam_ws/src/rpg_ultimate_slam_open/calibration/kalibr_targets/april_5x4.yaml --bag imu_cam_calib.bag --cam camchain-cam_calib.yaml --imu ~/uslam_ws/src/rpg_ultimate_slam_open/calibration/imu/davis_mpu6150.yaml --time-calibration
+rosrun kalibr kalibr_calibrate_imu_camera --target ~/uslam_ws/src/rpg_ultimate_slam_open/calibration/kalibr_targets/april_5x4.yaml --bag imu_cam_calib.bag --cam camchain-cam_calib.yaml --imu ~/uslam_ws/src/rpg_ultimate_slam_open/calibration/imu/davis_mpu6150.yaml
 ```
 
 
