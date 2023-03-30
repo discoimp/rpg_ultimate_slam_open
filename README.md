@@ -23,6 +23,12 @@ rosbag record -O imu_cam_calib.bag /dvs/image_raw /dvs/imu
 # Then, estimate camera-to-IMU extrinsics with Kalibr
 rosrun kalibr kalibr_calibrate_imu_camera --target ~/uslam_ws/src/rpg_ultimate_slam_open/calibration/kalibr_targets/april_5x4.yaml --bag imu_cam_calib.bag --cam cam_calib-camchain.yaml --imu ~/uslam_ws/src/rpg_ultimate_slam_open/calibration/imu/davis_mpu6150.yaml
 ```
+Run live slam with DAVIS346 events+frames
+```
+#Have to run run roscore and davis driver in two seperate terminals
+source uslam_ws/devel/setup.bash
+roslaunch ze_vio_ceres live_DAVIS240C.launch camera_name:=DAVIS_346 timeshift_cam_imu:=0.0021523330053057257
+```
 
 
 
