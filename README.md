@@ -4,7 +4,7 @@ Calibration:
 
 Smart to make a folder to collect all data at one place
 ```
-source kalibr/devel/setup.bash
+source kalibr_workspace/devel/setup.bash
 cd <to folder>
 # Record rosbag
 rosbag record -O cam_calib.bag /dvs/image_raw
