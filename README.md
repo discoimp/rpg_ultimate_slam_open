@@ -1,5 +1,7 @@
 # Ultimate SLAM
 
+Added som updated commands for calibration
+
 camera calibration:
 
 Smart to make a folder to collect all data at one place
