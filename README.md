@@ -1,6 +1,6 @@
 # Ultimate SLAM
 
-Calibration:
+camera calibration:
 
 Smart to make a folder to collect all data at one place
 ```
@@ -11,6 +11,15 @@ rosbag record -O cam_calib.bag /dvs/image_raw
 # Then, estimate camera intrinsics with Kalibr
 rosrun kalibr kalibr_calibrate_cameras --target ~/uslam_ws/src/rpg_ultimate_slam_open/calibration/kalibr_targets/april_5x4.yaml --bag cam_calib.bag --models pinhole-radtan --topics /dvs/image_raw --show-extraction
 ```
+
+camera to imu calibration
+```
+source kalibr_workspace/devel/setup.bash
+cd <to folder>
+# Record rosbag
+rosbag record -O imu_cam_calib.bag /dvs/image_raw /dvs/imu
+# Then, estimate camera-to-IMU extrinsics with Kalibr
+rosrun kalibr kalibr_calibrate_imu_camera --target ~/uslam_ws/src/rpg_ultimate_slam_open/calibration/kalibr_targets/april_5x4.yaml --bag imu_cam_calib.bag --cam camchain-cam_calib.yaml --imu ~/uslam_ws/src/rpg_ultimate_slam_open/calibration/imu/davis_mpu6150.yaml --time-calibration
 
 
 
