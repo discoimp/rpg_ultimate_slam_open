@@ -1,5 +1,23 @@
 # Ultimate SLAM
 
+Calibration:
+
+Smart to make a folder to collect all data at one place
+```
+cd <to folder>
+# Record rosbag
+rosbag record -O cam_calib.bag /dvs/image_raw
+# Then, estimate camera intrinsics with Kalibr
+rosrun kalibr kalibr_calibrate_cameras --target ~/uslam_ws/src/rpg_ultimate_slam_open/calibration/kalibr_targets/april_5x4.yaml --bag cam_calib.bag --models pinhole-radtan --topics /dvs/image_raw --show-extraction
+```
+
+
+
+
+
+
+
+
 <p align="center">
     <a href="https://youtu.be/0hDGFFJQfmA">
         <img src="./resources/lasso.gif" alt="UltimateSlam"/>
