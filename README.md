@@ -15,6 +15,7 @@ rosrun kalibr kalibr_calibrate_cameras --target ~/uslam_ws/src/rpg_ultimate_slam
 ```
 
 camera to imu calibration
+
 The "cam_calib_camchain-yaml" file is the calibration file generated in the camera calibration step
 ```
 source kalibr_workspace/devel/setup.bash
