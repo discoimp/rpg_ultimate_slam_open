@@ -34,7 +34,7 @@ roslaunch ze_vio_ceres live_DAVIS240C.launch camera_name:=DAVIS_346 timeshift_ca
 Run slam from pre recorded bag
 ```
 source uslam_ws/devel/setup.bash
-roslaunch ze_vio_ceres slam_from_bag_dev.launch camera_name:=<camera_calibration_file> timeshift_cam_imu:=0.0025360327760452963 bag_filename:=<bag_name>.bag
+roslaunch ze_vio_ceres slam_from_bag_dev.launch camera_name:=<camera_calibration_file> timeshift_cam_imu:=0.0034644315140507347 bag_filename:=<bag_name>.bag
 ```
 
 
