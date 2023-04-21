@@ -24,7 +24,7 @@ Make sure you have ROS sourced and continue:
 Clone the UltimateSLAM repository and run `vcstool` to automatically import the dependencies:
 
     cd src/
-    git clone github.com/discoimp/rpg_ultimate_slam_open.git
+    git clone http://github.com/discoimp/rpg_ultimate_slam_open.git
     vcs-import < rpg_ultimate_slam_open/dependencies.yaml
 
 Finally, build UltimateSLAM:
