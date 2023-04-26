@@ -100,7 +100,8 @@ echo "source ~/uslam_ws/devel/setup.bash" >> ~/.bashrc
 ```
 cd ~/catkin_ws/src/
 git clone https://github.com/discoimp/blue-rov2-noetic-interface.git
-
+curl -o ~/catkin_ws/blue-rov2-noetic-interface/resources/vhuit64 -LO https://www.virtualhere.com/sites/default/files/usbclient/vhuit64
+curl -o ~/catkin_ws/blue-rov2-noetic-interface/resources/QGroundControl.AppImage -LO https://d176tv9ibo4jno.cloudfront.net/latest/QGroundControl.AppImage
 ```
 
 
