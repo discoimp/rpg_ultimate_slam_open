@@ -111,7 +111,7 @@ The `status.sh` script contains the following:
 - Create shortcuts for launching apps
 
 ```
-echo 'source ~/catkin_ws/src/blue-rov2-noetic-interface/resources/status.sh' >> .bashrc
+echo 'source ~/catkin_ws/src/blue-rov2-noetic-interface/resources/status.sh' >> ~/.bashrc
 ```
 
 
