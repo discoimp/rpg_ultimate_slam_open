@@ -36,27 +36,22 @@ sudo apt update && sudo apt install ros-noetic-desktop-full -y
 Source your installation
 ```
 source /opt/ros/noetic/setup.bash
-
-# Optionally make ROS automatically sourced in every termninal session:
-echo "source /opt/ros/noetic/setup.bash" >> ~/.bashrc
 ```
 
 ### Install the ROS-enabled Event camera [driver](https://github.com/discoimp/rpg_dvs_ros)
 ```
 # Downloads convenient install scripts
 curl -o /tmp/install_event_driver.sh -LO https://raw.githubusercontent.com/discoimp/rpg_dvs_ros/master/install_event_driver.sh && curl -o /tmp/check_prerequisites.sh -LO https://raw.githubusercontent.com/discoimp/rpg_dvs_ros/master/check_prerequisites.sh && chmod +x /tmp/install_event_driver.sh /tmp/check_prerequisites.sh
+```
 
-# Checks and asks to install missing dependencies
+Checks and asks to install missing dependencies
+```
 sudo -E /tmp/check_prerequisites.sh
+```
 
-# Creates and builds your workspace
+Create, build and source your workspace
+```
 /tmp/install_event_driver.sh
-```
-Source your installation
-```
-# The script already sourced your installation
-# Optionally automatically source in every new termninal session:
-echo "source ~/catkin_ws/devel/setup.bash" >> ~/.bashrc
 ```
 
 
@@ -95,12 +90,31 @@ echo "source ~/uslam_ws/devel/setup.bash" >> ~/.bashrc
 ```
 
 ### Install resources
-(Assumes ~/catkin_ws/src exists from Event Camera Driver)
+Download scripts, QGroundControl and the VirtualHere (USB/IP) client
 
 ```
 cd ~/catkin_ws/src/
 git clone https://github.com/discoimp/blue-rov2-noetic-interface.git && curl -o ~/catkin_ws/src/blue-rov2-noetic-interface/resources/vhuit64 -LO https://www.virtualhere.com/sites/default/files/usbclient/vhuit64 && curl -o ~/catkin_ws/src/blue-rov2-noetic-interface/resources/QGroundControl.AppImage -LO https://d176tv9ibo4jno.cloudfront.net/latest/QGroundControl.AppImage
 ```
+Make the files executable
+```
+chmod +x ~/catkin_ws/src/blue-rov2-noetic-interface/resources/vhuit64
+chmod +x ~/catkin_ws/src/blue-rov2-noetic-interface/resources/QGroundControl.AppImage
+chmod +x ~/catkin_ws/src/blue-rov2-noetic-interface/resources/status.sh
+```
+
+### Add the convenience script to .bashrc
+The `status.sh` script contains the following:
+
+- Source all above-mentioned workspaces
+- Display status of relevant processes
+- Create shortcuts for launching apps
+
+```
+echo 'source ~/catkin_ws/src/blue-rov2-noetic-interface/resources/status.sh' >> .bashrc
+```
+
+
 
 
 
