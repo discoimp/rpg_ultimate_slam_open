@@ -13,7 +13,7 @@ reboot
 ### Install prerequisites:
 
 ```
-sudo apt update && sudo apt install git curl liblapack-dev libblas-dev python3-catkin-tools python3-vcstool -y
+sudo apt update && sudo apt install git curl liblapack-dev libblas-dev python3-catkin-tools python3-rosinstall-generator python3-osrf-pycommon python3-vcstool -y
 ```
 
 
@@ -85,6 +85,20 @@ Source your installation
 ```
 source ~/uslam_ws/devel/setup.bash
 ```
+
+### Mavlink to ROS (MAVROS)
+To run the scripts converting mavlink messages to ROS messages we need to install some support packages.
+Don't worry about the "kinetic" reference, this is the latest ROS1 version.
+```
+cd ~/catkin_ws
+wstool init src
+```
+ps. it's not distro-specific, so pay no attention to the "kinetic" reference ([ref](https://github.com/mavlink/mavros/blob/master/mavros/README.md#installation))
+```
+rosinstall_generator --rosdistro kinetic mavlink | tee /tmp/mavros.rosinstall
+```
+
+
 
 ### Install resources
 Download scripts, QGroundControl and the VirtualHere (USB/IP) client
