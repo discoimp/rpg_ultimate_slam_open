@@ -13,7 +13,7 @@ reboot
 ### Install prerequisites:
 
 ```
-sudo apt update && sudo apt install git curl liblapack-dev libblas-dev python3-catkin-tools python3-rosinstall-generator python3-rosdep2 python3-osrf-pycommon python3-vcstool python3-wstool -y
+sudo apt update && sudo apt install git curl liblapack-dev libblas-dev python3-catkin-tools python3-rosinstall-generator python3-osrf-pycommon python3-vcstool python3-wstool -y
 ```
 
 
@@ -37,6 +37,57 @@ Source your installation
 ```
 source /opt/ros/noetic/setup.bash
 ```
+
+### Mavlink to ROS (MAVROS)
+To run the scripts converting mavlink messages to ROS messages.
+
+Condensed version based on [mavros installation instructions](https://github.com/mavlink/mavros/blob/master/mavros/README.md#installation)
+
+Skip this block if you already have a catkin workspace:
+```
+mkdir -p ~/catkin_ws/src
+cd ~/catkin_ws
+catkin config --init --mkdirs --extend /opt/ros/$ROS_DISTRO --merge-devel --cmake-args -DCMAKE_BUILD_TYPE=Release
+```
+Continue with
+```
+cd ~/catkin_ws
+wstool init src
+```
+Mavlink is not distro-specific, so leave the "kinetic" reference as it is.
+```
+rosinstall_generator --rosdistro kinetic mavlink --deps | tee /tmp/mavros.rosinstall && rosinstall_generator --upstream mavros --deps | tee -a /tmp/mavros.rosinstall
+```
+Configure the workspace
+```
+wstool merge -t src /tmp/mavros.rosinstall
+wstool update -t src -j4
+rosdep install --from-paths src --ignore-src -y
+```
+
+If error try:
+```
+sudo apt install python3-rosdep
+#then
+rosdep init && rosdep update
+#then fix potentially broken stuff in ROS by
+sudo apt install ros-noetic-desktop-full
+```
+
+else:
+run the install script to install additional dependencies
+```
+./src/mavros/mavros/scripts/install_geographiclib_datasets.sh
+```
+build the workspace
+```
+catkin build && source devel/setup.bash
+```
+
+If trouble finds you, follow this instruction by the book:
+[mavros installation instructions](https://github.com/mavlink/mavros/blob/master/mavros/README.md#installation)
+
+
 
 ### Install the ROS-enabled Event camera [driver](https://github.com/discoimp/rpg_dvs_ros)
 ```
@@ -85,37 +136,6 @@ Source your installation
 ```
 source ~/uslam_ws/devel/setup.bash
 ```
-
-### Mavlink to ROS (MAVROS)
-To run the scripts converting mavlink messages to ROS messages.
-
-Condensed version based on [mavros installation instructions](https://github.com/mavlink/mavros/blob/master/mavros/README.md#installation)
-```
-cd ~/catkin_ws
-wstool init src
-```
-Mavlink is not distro-specific, so leave the "kinetic" reference as it is.
-```
-rosinstall_generator --rosdistro kinetic mavlink --deps | tee /tmp/mavros.rosinstall
-```
-Configure the workspace
-```
-wstool merge -t src /tmp/mavros.rosinstall
-wstool update -t src -j4
-rosdep install --from-paths src --ignore-src -y
-```
-run the install script to install additional dependencies
-```
-./src/mavros/mavros/scripts/install_geographiclib_datasets.sh
-```
-build the workspace
-```
-catkin build && source devel/setup.bash
-```
-
-If trouble finds you, follow this instruction by the book:
-[mavros installation instructions](https://github.com/mavlink/mavros/blob/master/mavros/README.md#installation)
-
 
 
 ### Install resources
