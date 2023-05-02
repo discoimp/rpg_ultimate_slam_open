@@ -65,14 +65,13 @@ wstool update -t src -j4
 rosdep install --from-paths src --ignore-src -y
 ```
 
-If error try:
-```
+// If error try:
 sudo apt install python3-rosdep
 #then
 rosdep init && rosdep update
 #then fix potentially broken stuff in ROS by
 sudo apt install ros-noetic-desktop-full
-```
+
 
 else:
 run the install script to install additional dependencies
