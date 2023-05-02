@@ -84,9 +84,6 @@ catkin build ze_vio_ceres
 Source your installation
 ```
 source ~/uslam_ws/devel/setup.bash
-
-# Optionally automatically source in every new termninal session:
-echo "source ~/uslam_ws/devel/setup.bash" >> ~/.bashrc
 ```
 
 ### Install resources
@@ -109,7 +106,10 @@ The `status.sh` script contains the following:
 - Source all above-mentioned workspaces
 - Display status of relevant processes
 - Create shortcuts for launching apps
+- Set the initial Github global settings and let you easily add a github access token for repo access.
+  - generate token [here](https://github.com/settings/tokens)
 
+Run the script, follow instructions
 ```
 echo 'source ~/catkin_ws/src/blue-rov2-noetic-interface/resources/status.sh' >> ~/.bashrc
 ```
