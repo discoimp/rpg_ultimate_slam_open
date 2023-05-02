@@ -13,7 +13,7 @@ reboot
 ### Install prerequisites:
 
 ```
-sudo apt update && sudo apt install git curl liblapack-dev libblas-dev python3-catkin-tools python3-rosinstall-generator python3-osrf-pycommon python3-vcstool python3-wstool -y
+sudo apt update && sudo apt install git curl liblapack-dev libblas-dev python3-catkin-tools python3-rosinstall-generator python3-osrf-pycommon python3-vcstool python3-wstool python3-rosdep -y
 ```
 
 
@@ -74,9 +74,9 @@ sudo apt install ros-noetic-desktop-full
 
 
 else:
-run the install script to install additional dependencies
+run the install script to install libraries needed
 ```
-./src/mavros/mavros/scripts/install_geographiclib_datasets.sh
+sudo ./src/mavros/mavros/scripts/install_geographiclib_datasets.sh
 ```
 build the workspace
 ```
