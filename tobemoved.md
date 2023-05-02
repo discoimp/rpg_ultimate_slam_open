@@ -13,7 +13,7 @@ reboot
 ### Install prerequisites:
 
 ```
-sudo apt update && sudo apt install git curl liblapack-dev libblas-dev python3-catkin-tools python3-rosinstall-generator python3-osrf-pycommon python3-vcstool -y
+sudo apt update && sudo apt install git curl liblapack-dev libblas-dev python3-catkin-tools python3-rosinstall-generator python3-osrf-pycommon python3-vcstool python3-wstool -y
 ```
 
 
@@ -87,16 +87,34 @@ source ~/uslam_ws/devel/setup.bash
 ```
 
 ### Mavlink to ROS (MAVROS)
-To run the scripts converting mavlink messages to ROS messages we need to install some support packages.
-Don't worry about the "kinetic" reference, this is the latest ROS1 version.
+To run the scripts converting mavlink messages to ROS messages.
+
+Condensed version based on [mavros installation instructions](https://github.com/mavlink/mavros/blob/master/mavros/README.md#installation)
 ```
 cd ~/catkin_ws
 wstool init src
 ```
-ps. it's not distro-specific, so pay no attention to the "kinetic" reference ([ref](https://github.com/mavlink/mavros/blob/master/mavros/README.md#installation))
+Mavlink is not distro-specific, so leave the "kinetic" reference as it is.
 ```
-rosinstall_generator --rosdistro kinetic mavlink | tee /tmp/mavros.rosinstall
+rosinstall_generator --rosdistro kinetic mavlink --deps | tee /tmp/mavros.rosinstall
 ```
+Configure the workspace
+```
+wstool merge -t src /tmp/mavros.rosinstall
+wstool update -t src -j4
+rosdep install --from-paths src --ignore-src -y
+```
+run the install script to install additional dependencies
+```
+./src/mavros/mavros/scripts/install_geographiclib_datasets.sh
+```
+build the workspace
+```
+catkin build && source devel/setup.bash
+```
+
+If trouble finds you, follow this instruction by the book:
+[mavros installation instructions](https://github.com/mavlink/mavros/blob/master/mavros/README.md#installation)
 
 
 
