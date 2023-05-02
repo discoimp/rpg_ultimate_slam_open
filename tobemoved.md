@@ -13,7 +13,7 @@ reboot
 ### Install prerequisites:
 
 ```
-sudo apt update && sudo apt install git curl liblapack-dev libblas-dev python3-catkin-tools python3-rosinstall-generator python3-osrf-pycommon python3-vcstool python3-wstool -y
+sudo apt update && sudo apt install git curl liblapack-dev libblas-dev python3-catkin-tools python3-rosinstall-generator python3-rosdep2 python3-osrf-pycommon python3-vcstool python3-wstool -y
 ```
 
 
