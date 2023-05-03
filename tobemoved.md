@@ -95,17 +95,6 @@ Create, build and source your workspace
 /tmp/install_event_driver.sh
 ```
 
-(skip for now, should be pre-installed)
-### Install USB/IP support
-(not needed for dataset playback)
-Install Virtual Here
-```
-sudo apt install linux-tools-virtual hwdata linux-tools-$(uname -r) linux-tools-generic libcanberra-gtk-module libcanberra-gtk3-module
-sudo update-alternatives --install /usr/local/bin/usbip usbip $(command -v ls /usr/lib/linux-tools/*/usbip | tail -n1) 20
-sudo apt update && sudo apt install usbip
-```
-
-
 
 ### Install [Ultimate SLAM](https://github.com/discoimp/rpg_ultimate_slam_open/blob/main/docs/Installation-of-UltimateSLAM.md)
 Create the Catkin workspace
@@ -155,6 +144,20 @@ Run the script, follow instructions
 ```
 echo 'source ~/catkin_ws/src/blue-rov2-noetic-interface/resources/status.sh' >> ~/.bashrc
 ```
+
+
+If problems with the VirtualHere software try this:
+### (Install USB/IP support)
+(not needed for dataset playback, and should have been shipped with Ubuntu 20.04, yet sometimes...)
+Install Virtual Here
+```
+sudo apt install -y build-essential libudev-dev libusb-1.0-0-dev
+
+sudo apt install linux-tools-virtual hwdata linux-tools-$(uname -r) linux-tools-generic libcanberra-gtk-module libcanberra-gtk3-module
+sudo update-alternatives --install /usr/local/bin/usbip usbip $(command -v ls /usr/lib/linux-tools/*/usbip | tail -n1) 20
+sudo apt update && sudo apt install usbip
+```
+
 
 
 
