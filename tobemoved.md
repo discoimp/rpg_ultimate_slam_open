@@ -56,7 +56,7 @@ wstool init src
 ```
 Mavlink is not distro-specific, so leave the "kinetic" reference as it is.
 ```
-rosinstall_generator --rosdistro kinetic mavlink --deps | tee /tmp/mavros.rosinstall && rosinstall_generator --upstream mavros --deps | tee -a /tmp/mavros.rosinstall
+rosinstall_generator --rosdistro kinetic mavlink | tee /tmp/mavros.rosinstall && rosinstall_generator --upstream mavros | tee -a /tmp/mavros.rosinstall
 ```
 Configure the workspace
 ```
@@ -65,15 +65,6 @@ wstool update -t src -j4
 rosdep install --from-paths src --ignore-src -y
 ```
 
-// If error try:
-sudo apt install python3-rosdep
-#then
-rosdep init && rosdep update
-#then fix potentially broken stuff in ROS by
-sudo apt install ros-noetic-desktop-full
-
-
-else:
 run the install script to install libraries needed
 ```
 sudo ./src/mavros/mavros/scripts/install_geographiclib_datasets.sh
@@ -104,7 +95,7 @@ Create, build and source your workspace
 /tmp/install_event_driver.sh
 ```
 
-
+(skip for now, should be pre-installed)
 ### Install USB/IP support
 (not needed for dataset playback)
 Install Virtual Here
