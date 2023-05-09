@@ -29,7 +29,7 @@ Run live slam with DAVIS346 events+frames
 ```
 #Have to run run roscore and davis driver in two seperate terminals
 source uslam_ws/devel/setup.bash
-roslaunch ze_vio_ceres live_DAVIS240C.launch camera_name:=DAVIS_346 timeshift_cam_imu:=0.0025360327760452963
+roslaunch ze_vio_ceres live_DAVIS240C.launch camera_name:=wide_uw timeshift_cam_imu:=0.0035431269113245616
 ```
 Run slam from pre recorded bag
 ```
